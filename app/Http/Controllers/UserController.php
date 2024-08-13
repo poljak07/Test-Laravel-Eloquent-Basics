@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function show($userId)
     {
-        $user = User::findOrFail($userId);
+        $user = User::whereId($userId)->firstOrFail();
 
         return view('users.show', compact('user'));
     }
